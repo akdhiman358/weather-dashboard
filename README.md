@@ -1,5 +1,9 @@
 # Weather Data Fetcher 🌤️
 
+
+**Note: This repository contains my submission for the InRisk Labs - Front-End Developer technical assignment. The goal of this assignment is to showcase my skills and experience in building responsive, high-quality user interfaces using Next.js and Tailwind CSS.**
+
+
 ## Project Description
 Weather Data Fetcher is a web application that allows users to fetch weather data for a specific latitude and longitude. The app utilizes the [Open-Meteo API](https://open-meteo.com/) and provides weather data for a period of up to 3 months for free. Users can input geographic coordinates and select a date range to retrieve weather information.
 
