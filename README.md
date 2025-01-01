@@ -26,20 +26,26 @@ Weather Data Fetcher is a web application that allows users to fetch weather dat
 
 
 ## Getting Started
-Prerequisites
-Node.js
-npm (or yarn)
+Follow these steps to set up the project locally.
+
+# Prerequisites
+
+Ensure you have the following installed on your system:
+
+- [Node.js](https://nodejs.org/) (version 16 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
 
 # Installation
 Clone the repository:
 ```bash
 Copy code
-git clone https://github.com/akdhiman358/portfolio_nextJs.git
+git clone https://github.com/akdhiman358/weather-dashboard.git
 ```
 Navigate to the project directory:
 ```bash
 Copy code
-cd portfolio
+cd weather-dashboard
 ```
 Install dependencies:
 ```bash
@@ -91,8 +97,6 @@ yarn start
 ### Deploying
 This project can be deployed to any static site hosting service. Netlify is used for the live version.
 
-### Contributing
-If you have suggestions for improvements or encounter any issues, feel free to open an issue or submit a pull request.
 
 ### Contact
-For any inquiries, please reach out to me via akshayud0@gmail.com
+For any inquiries, please reach out to me via akdhiman358@gmail.com
