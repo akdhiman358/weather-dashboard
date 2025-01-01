@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import ReactPaginate from 'react-paginate';
 
 const WeatherTable = ({ data }) => {
-  const [page, setPage] = useState(0);
-  const rowsPerPage = 10;
+  const [page, setPage] = useState(0); // Current page
+  const rowsPerPage = 10; // Number of rows per page
 
-  // Pagination handlers
-  const handlePrevPage = () => page > 0 && setPage(page - 1);
-  const handleNextPage = () =>
-    page < Math.ceil(data.time.length / rowsPerPage) - 1 && setPage(page + 1);
+  // Handle page click (react-paginate)
+  const handlePageClick = (selectedPage) => {
+    setPage(selectedPage.selected); // Update page based on clicked page number
+  };
 
   // Extract current page data
   const currentPageData = data.time
@@ -19,12 +20,17 @@ const WeatherTable = ({ data }) => {
       meanTemp: data.temperature_2m_mean[page * rowsPerPage + idx] || '-',
     }));
 
+  // Total number of pages
+  const pageCount = Math.ceil(data.time.length / rowsPerPage);
+
   return (
     <div className="bg-white p-4 rounded shadow-md mt-6">
       {/* Header message */}
       <p className="text-center text-gray-600 font-medium mb-4">
         Data is only available for the last 3 months. To access older data, consider upgrading to the paid version of the API.
       </p>
+
+      {/* Table */}
       <table className="w-full table-auto border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-200">
@@ -48,31 +54,25 @@ const WeatherTable = ({ data }) => {
           ))}
         </tbody>
       </table>
-      {/* Pagination controls */}
-      <div className="mt-4 flex justify-between items-center">
-        <button
-          onClick={handlePrevPage}
-          className={`py-1 px-4 rounded bg-gray-300 ${
-            page === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-400'
-          }`}
-          disabled={page === 0}
-        >
-          Previous
-        </button>
-        <p className="text-gray-600">
-          Page {page + 1} of {Math.ceil(data.time.length / rowsPerPage)}
-        </p>
-        <button
-          onClick={handleNextPage}
-          className={`py-1 px-4 rounded bg-gray-300 ${
-            page >= Math.ceil(data.time.length / rowsPerPage) - 1
-              ? 'opacity-50 cursor-not-allowed'
-              : 'hover:bg-gray-400'
-          }`}
-          disabled={page >= Math.ceil(data.time.length / rowsPerPage) - 1}
-        >
-          Next
-        </button>
+
+      {/* Pagination */}
+      <div className="mt-6 flex justify-center">
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="Next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5} // Number of page buttons visible
+          marginPagesDisplayed={2} // Pages visible at the start/end
+          pageCount={pageCount} // Total number of pages
+          previousLabel="< Previous"
+          containerClassName="pagination flex items-center space-x-2" // Styling container
+          pageClassName="page-item" // Styling page numbers
+          pageLinkClassName="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300" // Styling individual page links
+          previousLinkClassName="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400" // Styling previous button
+          nextLinkClassName="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400" // Styling next button
+          activeLinkClassName="bg-blue-500 text-white" // Styling active page
+          disabledClassName="opacity-50 cursor-not-allowed" // Styling disabled buttons
+        />
       </div>
     </div>
   );
