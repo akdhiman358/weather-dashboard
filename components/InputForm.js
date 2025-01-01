@@ -54,6 +54,7 @@ const InputForm = ({ fetchWeatherData }) => {
             value={latitude}
             onChange={(e) => setLatitude(e.target.value)}
             className="w-full p-3 border rounded"
+            placeholder="e.g., 37.7749"
           />
         </div>
 
@@ -65,6 +66,7 @@ const InputForm = ({ fetchWeatherData }) => {
             value={longitude}
             onChange={(e) => setLongitude(e.target.value)}
             className="w-full p-3 border rounded"
+            placeholder="e.g., -122.4194"
           />
         </div>
 
