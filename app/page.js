@@ -43,7 +43,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold text-center mb-6 text-red-500">Weather Dashboard</h1>
+      
       <InputForm fetchWeatherData={fetchWeatherData} />
       {loading && <p className="text-center mt-4">Loading...</p>}
       {error && <ErrorMessage message={error} />}
