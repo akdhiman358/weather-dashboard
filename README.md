@@ -8,7 +8,7 @@ Weather Data Fetcher is a web application that allows users to fetch weather dat
 
 ## Screenshot
 ![Dashboard Screenshot](Screenshot1.png)
-[Dashboard Screenshot](Screenshot2.png)
+![Dashboard Screenshot](Screenshot2.png)
 
 ## Features
 - Fetch weather data for any location using latitude and longitude.
