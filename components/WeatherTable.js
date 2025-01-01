@@ -65,15 +65,16 @@ const WeatherTable = ({ data }) => {
           marginPagesDisplayed={2} // Pages visible at the start/end
           pageCount={pageCount} // Total number of pages
           previousLabel="< Previous"
-          containerClassName="pagination flex items-center space-x-2" // Styling container
+          containerClassName="pagination flex items-center justify-center flex-wrap space-x-2 space-y-2" // Wrap items on smaller screens
           pageClassName="page-item" // Styling page numbers
-          pageLinkClassName="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300" // Styling individual page links
-          previousLinkClassName="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400" // Styling previous button
-          nextLinkClassName="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400" // Styling next button
+          pageLinkClassName="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 text-sm" // Adjust text size for smaller screens
+          previousLinkClassName="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400 text-sm" // Adjust text size for "Previous"
+          nextLinkClassName="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400 text-sm" // Adjust text size for "Next"
           activeLinkClassName="bg-blue-500 text-white" // Styling active page
           disabledClassName="opacity-50 cursor-not-allowed" // Styling disabled buttons
         />
-      </div>
+</div>
+
     </div>
   );
 };
